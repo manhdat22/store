@@ -1,6 +1,7 @@
 <?php
 require_once './init.php';
 require_once './modules/adminpage/header.php';
+
 ?>
 
 <body>
@@ -25,11 +26,15 @@ require_once './modules/adminpage/header.php';
                         <nav class="collapse navbar-collapse bs-navbar-collapse navbar-right" role="navigation">
                             <ul class="nav navbar-nav">
                                 <li class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tài khoản<b class="caret"></b></a>
-                                    <ul class="dropdown-menu animated fadeInUp">
-                                        <li><a href="profile.html">Thông tin</a></li>
-                                        <li><a href="login.html">Đăng xuất</a></li>
-                                    </ul>
+                                    <a href="" onclick="logout();" class="dropdown-toggle" data-toggle="dropdown">Đăng xuất</a>
+                                    <script>
+                                        function logout() {
+                                            var check = confirm("Bạn có muốn đăng xuất?");
+                                            if (check) {
+                                                location.href= "logout.php";
+                                            }
+                                        }
+                                    </script>
                                 </li>
                             </ul>
                         </nav>
@@ -54,5 +59,5 @@ require_once './modules/adminpage/header.php';
     </div>
 
     <?php
-    require_once './modules/adminpage/footer.php';
+    include './modules/adminpage/footer.php';
     ?>

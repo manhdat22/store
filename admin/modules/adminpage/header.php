@@ -12,7 +12,7 @@
         <link href="vendors/fullcalendar/fullcalendar.css" rel="stylesheet" media="screen">
         <!-- styles -->
         <link href="css/styles.css" rel="stylesheet">
-
+        <link rel="stylesheet" href="http://localhost/store/font/css/font-awesome.min.css">
         <link href="css/calendar.css" rel="stylesheet">
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->

@@ -1,3 +1,10 @@
+<?php
+//chạy các thư viện
+require_once './init.php';
+if (isset($_SESSION['user'])) {
+    new Redirect($_DOMAINS);
+}
+?>
 <!DOCTYPE html>
 <html lang="vi">
     <head>
@@ -19,11 +26,7 @@
     </head>
     <body class="login-bg">
         <?php
-//chạy các thư viện
-        require_once './init.php';
-
         if (isset($_POST['submit'])) {
-
             //Lấy thông tin từ form login
             $username = $_POST['txtU'];
             $password = md5($_POST['txtP']);
@@ -32,30 +35,26 @@
             $check_user = "SELECT username, password FROM `users` WHERE `username` = '$username' AND `password` = '$password'";
             if ($db->num_rows($check_user)) {
                 //Kiểm tra quyền
-                $check_permission = "SELECT username, password FROM `users` WHERE `username` = '$username' AND `permission` != 2 AND `status` != 0 ";
+                $check_permission = "SELECT username, password FROM `users` WHERE `username` = '$username' AND `quyen` != 2 AND `trang_thai` != 0 ";
                 if ($db->num_rows($check_permission)) {
 
-                    $
+                    $session->send($username);
+                    $db->close();
 
-                    if (isset($_SESSION['sa'])) {
-                        echo "<script>alert('Hello admin');</script>";
-                    } else {
+                    if (isset($_SESSION['user'])) {
                         new Redirect($_DOMAINS);
+                    } else {
+                        echo "<script>alert('');</script>";
                     }
                 } else {
-
                     echo "<script>alert('Bạn không có quyền hoặc bạn đã bị cấm truy cập trang này');</script>";
-                    new Redirect("http://localhost/store/"); //Không có quyền -> đẩy về trang chủ
+                    new Redirect($home); //Không có quyền -> đẩy về trang chủ
                 }
             } else {
                 echo "<script>alert('Sai tên đăng nhập hoặc mật khẩu');</script>";
             }
         }
         ?>
-
-
-
-
         <div class="page-content container">
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
@@ -83,9 +82,6 @@
                 </div>
             </div>
         </div>
-
-
-
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://code.jquery.com/jquery.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->

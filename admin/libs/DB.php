@@ -27,7 +27,7 @@ class DB {
         try {
             $this->conn = mysqli_connect($this->HOST, $this->USER, $this->PASS, $this->DATABASE);
         } catch (Exception $e) {
-            echo $this->ERROR . $e ->getMessage();
+            echo $this->ERROR . $e->getMessage();
         }
     }
 
@@ -60,6 +60,35 @@ class DB {
     public function set_char($utf) {
         if ($this->conn) {
             mysqli_set_charset($this->conn, $utf);
+        }
+    }
+
+    //lấy fetch data
+    public function fetch_assoc($type, $sql = null) {
+        if ($this->conn) {
+            $query = mysqli_query($this->conn, $sql);
+            if ($query) {
+                if ($type == 0) {
+                    //nhiều dự liệu
+                    while ($row = mysql_fetch_assoc($query)) {
+                        $datas[] = $row;
+                    }
+                    return $datas;
+                } else if ($type == 1) {
+                    // 1 dữ liệu
+                    $data = mysqli_fetch_assoc($query);
+                    return $data;
+                }
+            }
+        }
+    }
+
+    //lấy data mới nhất
+
+    public function get_latest() {
+        if ($this->conn) {
+            $count = mysqli_insert_id($this->conn);
+            $count = "0" ? $count : "1";
         }
     }
 

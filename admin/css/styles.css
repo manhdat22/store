@@ -650,3 +650,5 @@ body {
       border-radius:10px;
    }  
 }
+
+.btn.btn-primary.add-btn{float:right;}
