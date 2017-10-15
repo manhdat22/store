@@ -1,7 +1,12 @@
 <?php
+$err = array();
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $err = array();
-}
+    $tensp = $_POST['txtName'];
+    $tensp = $_POST['txtName'];
+    $tensp = $_POST['txtName'];
+    $tensp = $_POST['txtName'];
+    $tensp = $_POST['txtName'];
+}   
 ?>
 
 
@@ -27,18 +32,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             <fieldset>
                 <div class="form-group">
                     <?php
+                        
                     ?>
                     <label>Tên sản phẩm *</label>
                     <input class="form-control" placeholder="Tên sản phẩm" name="txtName" type="text">
                 </div>
-                
+
                 <div class="form-group">
                     <?php
                     $lay_danh_muc = "SELECT * FROM `danh_muc`";
                     $rs = mysqli_query($db->conn, $lay_danh_muc);
                     ?>
                     <label>Danh mục sản phẩm *</label>
-                    <select class="form-control">
+                    <select name="danhMuc" class="form-control">
                         <option value="-1" selected>-- Danh mục --</option>
                         <?php
                         foreach ($rs as $r) {
@@ -48,14 +54,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     </select>                 
                 </div>
-                
+
                 <div class="form-group">
                     <?php
                     $lay_thuong_hieu = "SELECT * FROM `thuong_hieu`";
                     $rs = mysqli_query($db->conn, $lay_thuong_hieu);
                     ?>
                     <label>Thương hiệu sản phẩm *</label>
-                    <select class="form-control">
+                    <select name="thuongHieu" class="form-control">
                         <option value="-1" selected>-- Thương hiệu --</option>
                         <?php
                         foreach ($rs as $r) {
@@ -65,14 +71,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
                     </select>                 
                 </div>
-                
+
                 <div class="form-group">
                     <?php
                     $lay_nha_phan_phoi = "SELECT * FROM `nha_phan_phoi`";
                     $rs = mysqli_query($db->conn, $lay_nha_phan_phoi);
                     ?>
                     <label>Nhà phân phối sản phẩm *</label>
-                    <select class="form-control">
+                    <select name="npp" class="form-control">
                         <option value="-1" selected>-- Nhà phân phối --</option>
                         <?php
                         foreach ($rs as $r) {
@@ -81,10 +87,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         ?>
                     </select>                 
                 </div>
-                
+
                 <div class="form-group">
-                    <label>Galery ảnh (Ảnh đầu tiên sẽ được chọn làm ảnh đại diện của sản phẩm) *</label>
-                    <input class="form-control" placeholder="Ảnh" name="upload[]" type="file" multiple="multiple" >
+                    <label>Giá (VNĐ) * </label>
+                    <input class="form-control" placeholder="Đơn giá" name="unitPrice" type="number">
+                </div>
+
+                <div class="form-group">
+                    <label>Ảnh sản phẩm</label>
+                    <input class="form-control" placeholder="Ảnh" accept=".PNG,.JPG,.JPEG" name="upload" type="file">
                 </div>
 
                 <div class="form-group">

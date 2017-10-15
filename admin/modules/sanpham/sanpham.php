@@ -2,18 +2,22 @@
 require_once './init.php';
 //truy vấn toàn bộ dữ liệu của bảng
 $lay_du_lieu = "SELECT  `san_pham`.* , `danh_muc`.ten_danh_muc , `thuong_hieu`.ten_thuong_hieu,  `nha_phan_phoi`.ten_nha_phan_phoi FROM `san_pham`  JOIN danh_muc on san_pham.id_danh_muc=danh_muc.id JOIN thuong_hieu on san_pham.id_thuong_hieu=thuong_hieu.id JOIN nha_phan_phoi on san_pham.id_nha_phan_phoi=nha_phan_phoi.id ";
-$lay_anh = "SELECT url FROM `san_pham` JOIN hinhanh_sp on san_pham.id = hinhanh_sp.id_sp JOIN hinh_anh on hinhanh_sp.id_anh = hinh_anh.id";
+//$lay_anh = "SELECT url FROM `san_pham` JOIN hinhanh_sp on san_pham.id = hinhanh_sp.id_sp JOIN hinh_anh on hinhanh_sp.id_anh = hinh_anh.id";
 $rs = mysqli_query($db->conn, $lay_du_lieu);
-$img = mysqli_query($db->conn, $lay_anh);
-$feature_img = mysqli_fetch_assoc($img);
+//$img = mysqli_query($db->conn, $lay_anh);
+//$feature_img = mysqli_fetch_assoc($img);
+if (is_array($rs) || is_object($rs)) {
 foreach ($rs as $r) {
     if ($r['available'] == 0) {
         $cap_nhat_trang_thai_het = "UPDATE `san_pham` SET `status` = 2 where `id` = {$r["id"]} ";
         $xuly = mysqli_query($db->conn, $cap_nhat_trang_thai_het);
+        
     } else if ($r['available'] > 0 ){
         $cap_nhat_trang_thai_co = "UPDATE `san_pham` SET `status` = 1 where `id` = {$r["id"]} ";
-        $xuly = mysqli_query($db->conn, $cap_nhat_trang_thai_co);
+        $xuly = mysqli_query($db->conn, $cap_nhat_trang_thai_co);       
     }
+    //new Redirect('index.php?page=sanpham');
+}
 }
 $db->close();
 ?>
@@ -61,7 +65,7 @@ $db->close();
                         ?>
                         <tr>
                             <td><?php echo $row["id"]; ?></td>
-                            <td><?php echo "<img src=" . $feature_img['url'] . " width='100px'/>"; ?></td>
+                            <td><?php echo "<img src=" . $row['hinh_anh'] . " width='100px'/>"; ?></td>
                             <td><a href="index.php?page=chitietsanpham&id=<?php echo $row["id"]; ?>"><?php echo $row["ten_san_pham"]; ?></a></td>
 
                             <td><?php echo $row["don_gia"] . "&nbsp;VNĐ"; ?></td>
