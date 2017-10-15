@@ -1,7 +1,6 @@
 <?php
 require_once './init.php';
 require_once './modules/adminpage/header.php';
-
 ?>
 
 <body>
@@ -31,7 +30,7 @@ require_once './modules/adminpage/header.php';
                                         function logout() {
                                             var check = confirm("Bạn có muốn đăng xuất?");
                                             if (check) {
-                                                location.href= "logout.php";
+                                                location.href = "logout.php";
                                             }
                                         }
                                     </script>
@@ -51,7 +50,8 @@ require_once './modules/adminpage/header.php';
             </div>
             <div class="col-md-10">
 
-                <?php include './modules/danhmuc/list-danhmuc.php'; ?>
+                <!--route-->
+                <?php include './modules/adminpage/route.php'; ?>
                 <!-- Chèn content vào dây -->
 
             </div>

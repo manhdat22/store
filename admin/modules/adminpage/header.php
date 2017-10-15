@@ -1,5 +1,13 @@
+<?php
+    if (!isset($_SESSION['user'])) {
+    echo '<script>alert("Bạn chưa đăng nhập, vui lòng đăng nhập")</script>';
+    
+    new Redirect($login);
+}
+?>
+
 <!DOCTYPE html>
-<html>
+<html
     <head>
         <meta charset="utf-8" />
         <title>Trang quản trị</title>
@@ -14,7 +22,9 @@
         <link href="css/styles.css" rel="stylesheet">
         <link rel="stylesheet" href="http://localhost/store/font/css/font-awesome.min.css">
         <link href="css/calendar.css" rel="stylesheet">
-
+        <style>
+            .panel-options{display:none;}
+        </style>
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>

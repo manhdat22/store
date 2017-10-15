@@ -12,8 +12,8 @@ $db->conn;
 
 //thông tin chung
 $_DOMAINS = 'http://localhost/store/admin/';
-$_DOMAINS = 'http://localhost/store/admin/';
 $home = 'http://localhost/store';
+$login = 'http://localhost/store/admin/login.php';
 
 date_default_timezone_get('Asia/Ho_Chi_Minh');
 $today = '';
