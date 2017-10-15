@@ -6,6 +6,15 @@ $lay_anh = "SELECT url FROM `san_pham` JOIN hinhanh_sp on san_pham.id = hinhanh_
 $rs = mysqli_query($db->conn, $lay_du_lieu);
 $img = mysqli_query($db->conn, $lay_anh);
 $feature_img = mysqli_fetch_assoc($img);
+foreach ($rs as $r) {
+    if ($r['available'] == 0) {
+        $cap_nhat_trang_thai_het = "UPDATE `san_pham` SET `status` = 2 where `id` = {$r["id"]} ";
+        $xuly = mysqli_query($db->conn, $cap_nhat_trang_thai_het);
+    } else if ($r['available'] > 0 ){
+        $cap_nhat_trang_thai_co = "UPDATE `san_pham` SET `status` = 1 where `id` = {$r["id"]} ";
+        $xuly = mysqli_query($db->conn, $cap_nhat_trang_thai_co);
+    }
+}
 $db->close();
 ?>
 
@@ -48,6 +57,7 @@ $db->close();
                 <?php
                 if (is_array($rs) || is_object($rs)) {
                     foreach ($rs as $row) {
+                        //xử lý hết hàng
                         ?>
                         <tr>
                             <td><?php echo $row["id"]; ?></td>
@@ -59,34 +69,32 @@ $db->close();
                             <td><?php echo $row["ten_thuong_hieu"]; ?></td>
                             <td><?php echo $row["ten_nha_phan_phoi"]; ?></td>
                             <td><?php
-                            //trạng thái mặt hàng 0: ẩn , 1: bán, 2: sắp hết hàng, 3: hết hàng
-                                if ($row["status"] == 0) {
-                                    echo "<strong style='color: grey'>Ẩn</strong>";
-                                } elseif ($row["status"] == 1) {
-                                    echo "<strong style='color: green'>Đang bán</strong>";
-                                } elseif ($row["status"] == 2) {
-                                    echo "<strong style='color: orange'>Sắp hết hàng</strong>";
-                                } elseif ($row["status"] == 3) {
-                                    echo "<strong style='color: red'>Hết hàng</strong>";
-                                }
-                                ?></td>
+                //trạng thái mặt hàng 0: ẩn , 1: bán, 2: sắp hết hàng, 3: hết hàng
+                if ($row["status"] == 0) {
+                    echo "<strong style='color: grey'>Ẩn</strong>";
+                } elseif ($row["status"] == 1) {
+                    echo "<strong style='color: green'>Đang bán</strong>";
+                } elseif ($row["status"] == 2) {
+                    echo "<strong style='color: red'>Hết hàng</strong>";
+                }
+                        ?></td>
                             <td><?php
-                            //tình trạng kho hàng.
-                                if ($row["available"] == 0) {
-                                    echo '<strong style="color: red">' . $row["available"] . '</strong>';
-                                } elseif ($row["available"] > 10) {
-                                    echo '<strong style="color: green">' . $row["available"] . '</strong>';
-                                } elseif ($row["available"] < 10) {
-                                    echo '<strong style="color: orange">' . $row["available"] . '</strong>';
-                                }
-                                ?></td>
+                        //tình trạng kho hàng.
+                        if ($row["available"] == 0) {
+                            echo '<strong style="color: red">' . $row["available"] . '</strong>';
+                        } elseif ($row["available"] > 10) {
+                            echo '<strong style="color: green">' . $row["available"] . '</strong>';
+                        } elseif ($row["available"] < 10) {
+                            echo '<strong style="color: orange">' . $row["available"] . '</strong>';
+                        }
+                        ?></td>
                             <td><a href="index.php?page=suasanpham&id=<?php echo $row['id'] ?>"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sửa</a>&nbsp;|
                                 <a href="#" onclick="confirm_xoa(<?php echo $row['id'] ?>)"><i class="fa fa-trash"></i>&nbsp;&nbsp;Xóa</a></td>
                         </tr>
-        <?php
-    }
-}
-?>
+                        <?php
+                    }
+                }
+                ?>
             </tbody>
 
         </table>
