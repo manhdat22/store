@@ -1,47 +1,44 @@
 <div class="container">
-<div class="footer-top">
+    <div class="footer-top">
         <div class="col-md-3 footer-left">
-                <h3>ABOUT US</h3>
-                <ul>
-                        <li><a href="#">Who We Are</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="#">Our Sites</a></li>
-                        <li><a href="#">In The News</a></li>
-                        <li><a href="#">Team</a></li>
-                        <li><a href="#">Carrers</a></li>
-                </ul>
+            <h3>QUY ĐỊNH CHUNG</h3>
+            <ul>
+                <li><a href="#">Điều khoản mua hàng</a></li>
+                <li><a href="#">Hướng dẫn mua hàng</a></li>
+                <li><a href="#">Phương thức thanh toán</a></li>
+                <li><a href="#">Phương thức Vận chuyển</a></li>
+                <li><a href="#">Chính sách bảo mật</a></li>
+            </ul>
         </div>
         <div class="col-md-3 footer-left">
-                <h3>YOUR ACCOUNT</h3>
-                <ul>
-                        <li><a href="account.html">Your Account</a></li>
-                        <li><a href="#">Personal Information</a></li>
-                        <li><a href="contact.html">Addresses</a></li>
-                        <li><a href="#">Discount</a></li>
-                        <li><a href="#">Track your order</a></li>
-                </ul>
+            <h3>THÔNG TIN KHUYẾN MẠI</h3>
+            <ul>
+                <li><a href="#">Khuyến mãi</a></li>
+                <li><a href="#">Thông tin</a></li>
+                <li><a href="#">Tuyển dụng</a></li>
+
+            </ul>
         </div>
         <div class="col-md-3 footer-left">
-                <h3>CUSTOMER SERVICES</h3>
-                <ul>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Shipping</a></li>
-                        <li><a href="#">Cancellation</a></li>
-                        <li><a href="#">Returns</a></li>
-                        <li><a href="#">Bulk Orders</a></li>
-                        <li><a href="#">Buying Guides</a></li>
-                </ul>
+            <h3>CHĂM SÓC KHÁCH HÀNG</h3>
+            <ul>
+                <li><a href="#">Câu hỏi thường gặp</a></li>
+                <li><a href="#">Hệ thống bán hàng</a></li>
+                <li><a href="#">Cơ sở</a></li>
+                <li><a href="#">Chính sách</a></li>
+                <li><a href="#">Điều khoản</a></li>
+            </ul>
         </div>
         <div class="col-md-3 footer-left">
-                <h3>CATEGORIES</h3>
-                <ul>
-                        <li><a href="#">Sports Shoes</a></li>
-                        <li><a href="#">Casual Shoes</a></li>
-                        <li><a href="#">Formal Shoes</a></li>
-                        <li><a href="#">Party Shoes</a></li>
-                        <li><a href="#">Ethnic</a></li>
-                </ul>
+            <h3>LIÊN HỆ</h3>
+            <ul>
+                <li>Địa chỉ: Hà Nội</li>
+                <li>Email: <a href="mailto:sa@gmail.com">sa@gmail.com</a> </li>
+                <li>Số điện thoại: 0962255096</li>
+                <li>Facebook: <a href="https://www.facebook.com/pvipb">www.facebook.com/pvipb</a></li>
+                
+            </ul>
         </div>
         <div class="clearfix"> </div>
-</div>
+    </div>
 </div>

@@ -2,14 +2,14 @@
 		<div  id="top" class="callbacks_container">
 			<ul class="rslides" id="slider4">
 			        <li>
-					<div class="banner-1"></div>
+                                    <div class="banner-1" style="background-image: url('images/slide2.jpg')"></div>
 				</li>
 				<li>
-					<div class="banner-2"></div>
+					<div class="banner-2" style="background-image: url('images/banner-3.jpg')"></div>
 				</li>
-				<li>
-					<div class="banner-3"></div>
-				</li>
+<!--				<li>
+					<div class="banner-3" style="background-image: url('images/banner-3.jpg')"></div>
+				</li>-->
 			</ul>
 		</div>
 		<div class="clearfix"></div>

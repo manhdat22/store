@@ -5,16 +5,15 @@ require_once './init.php';
 if (isset($_REQUEST['id'])) {
     $id_sp = $_REQUEST['id'];
     $lay_du_lieu = "SELECT  `san_pham`.* , `danh_muc`.ten_danh_muc , `thuong_hieu`.ten_thuong_hieu,  `nha_phan_phoi`.ten_nha_phan_phoi FROM `san_pham`  JOIN danh_muc on san_pham.id_danh_muc=danh_muc.id JOIN thuong_hieu on san_pham.id_thuong_hieu=thuong_hieu.id JOIN nha_phan_phoi on san_pham.id_nha_phan_phoi=nha_phan_phoi.id where san_pham.id = '{$id_sp}'";
-    $lay_anh = "SELECT url FROM `san_pham` JOIN hinhanh_sp on san_pham.id = hinhanh_sp.id_sp JOIN hinh_anh on hinhanh_sp.id_anh = hinh_anh.id where san_pham.id = '{$id_sp}'";
+    //$lay_anh = "SELECT url FROM `san_pham` JOIN hinhanh_sp on san_pham.id = hinhanh_sp.id_sp JOIN hinh_anh on hinhanh_sp.id_anh = hinh_anh.id where san_pham.id = '{$id_sp}'";
     $rs = mysqli_query($db->conn, $lay_du_lieu);
-    $img = mysqli_query($db->conn, $lay_anh);
-    $feature_img = mysqli_fetch_assoc($img);
+    //$img = mysqli_query($db->conn, $lay_anh);
     $datas = mysqli_fetch_assoc($rs);
 
 $db->close();
     
 } else {
-    new Redirect('index?page=sanpham');
+    new Redirect('index.php?page=sanpham');
 }
 //truy vấn toàn bộ dữ liệu của bảng
 
@@ -24,7 +23,7 @@ $db->close();
 <div class="content-box-large">
     <div class="panel-heading">
         <div class="panel-title"><?php echo $datas['ten_san_pham']; ?></div>
-        <a class="btn btn-primary add-btn" href="index.php?page=sanpham&id=<?php echo $datas['id']; ?>" style="float: right;">
+        <a class="btn btn-primary add-btn" href="index.php?page=suasanpham&id=<?php echo $datas['id']; ?>" style="float: right;">
             <i class="fa fa-pencil"></i>
             Sửa sản phẩm 
         </a>    
@@ -45,7 +44,7 @@ $db->close();
                         
 <!--                        //lấy nhiểu ảnh-->
                         <td>Ảnh sản phẩm</td>
-                        <td><?php echo "<img src=" . $feature_img['url'] . " width='150px'/>" ?></td>
+                        <td><img src="<?php  echo "http://localhost/store/images/" . $datas['hinh_anh'] ?>" width='100px'/></td>
                     </tr>
                     <tr>
                         <td>Danh mục</td>

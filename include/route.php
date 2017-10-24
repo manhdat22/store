@@ -1,8 +1,18 @@
 <?php
 
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+if (isset($_REQUEST['page'])) {
+    $page = $_REQUEST['page'];
 
+    switch ($page) {
+        //danh muc
+        case 'locsanpham' : include 'pages/locsanpham.php';
+            break;
+        case 'timkiem' : include 'pages/search.php';
+            break;
+        case 'sanpham' : include 'pages/sanpham.php';
+            break;
+    }
+} else {
+    include 'pages/index-page.php';
+}
+?>

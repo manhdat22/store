@@ -1,8 +1,8 @@
 <?php
 //gọi các thư viện
-require_once './libs/DB.php';
-require_once './libs/Sessions.php';
-require_once './libs/functions.php';
+require_once 'admin/libs/DB.php';
+require_once 'admin/libs/Sessions.php';
+require_once 'admin/libs/functions.php';
 //database
 $db = new DB();
 $db->connect();

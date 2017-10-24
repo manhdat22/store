@@ -27,4 +27,7 @@
 <script src="js/simpleCart.min.js"> </script>
 <link href="css/memenu.css" rel="stylesheet" type="text/css" media="all" />
 <script type="text/javascript" src="js/memenu.js"></script>
+<link rel="stylesheet" href="js/simplePagination.css" />
+<script type="text/javascript" src="js/jquery.simplePagination.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
+<link rel="stylesheet" href="http://localhost/store/font/css/font-awesome.min.css">
