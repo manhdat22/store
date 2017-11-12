@@ -9,10 +9,10 @@ $rs = mysqli_query($db->conn, $lay_du_lieu);
 $url = "http://localhost/store/images/";
 if (is_array($rs) || is_object($rs)) {
     foreach ($rs as $r) {
-        if ($r['available'] == 0) {
+        if ($r['available'] == 0 && $r['status'] != 0) {
             $cap_nhat_trang_thai_het = "UPDATE `san_pham` SET `status` = 2 where `id` = {$r["id"]} ";
             $xuly = mysqli_query($db->conn, $cap_nhat_trang_thai_het);
-        } else if ($r['available'] > 0) {
+        } else if ($r['available'] > 0 && $r['status'] != 0) {
             $cap_nhat_trang_thai_co = "UPDATE `san_pham` SET `status` = 1 where `id` = {$r["id"]} ";
             $xuly = mysqli_query($db->conn, $cap_nhat_trang_thai_co);
         }
@@ -58,29 +58,29 @@ $db->close();
             </thead>
             <tbody>
 
-<?php
-if (is_array($rs) || is_object($rs)) {
-    foreach ($rs as $row) {
-        //xử lý hết hàng
-        ?>
+                <?php
+                if (is_array($rs) || is_object($rs)) {
+                    foreach ($rs as $row) {
+                        //xử lý hết hàng
+                        ?>
                         <tr>
                             <td><?php echo $row["id"]; ?></td>
-                            <td><img src="<?php  echo $url . $row['hinh_anh'] ?>" width='100px'/></td>
+                            <td><img src="<?php echo $url . $row['hinh_anh'] ?>" width='100px'/></td>
                             <td><a href="index.php?page=chitietsanpham&id=<?php echo $row["id"]; ?>"><?php echo $row["ten_san_pham"]; ?></a></td>
                             <td><?php echo $row["don_gia"] . "&nbsp;VNĐ"; ?></td>
                             <td><?php echo $row["ten_danh_muc"]; ?></td>
                             <td><?php echo $row["ten_thuong_hieu"]; ?></td>
                             <td><?php echo $row["ten_nha_phan_phoi"]; ?></td>
                             <td><?php
-                //trạng thái mặt hàng 0: ẩn , 1: bán, 2: sắp hết hàng, 3: hết hàng
-                if ($row["status"] == 0) {
-                    echo "<strong style='color: grey'>Ẩn</strong>";
-                } elseif ($row["status"] == 1) {
-                    echo "<strong style='color: green'>Đang bán</strong>";
-                } elseif ($row["status"] == 2) {
-                    echo "<strong style='color: red'>Hết hàng</strong>";
-                }
-        ?></td>
+                                //trạng thái mặt hàng 0: ẩn , 1: bán, 2: sắp hết hàng, 3: hết hàng
+                                if ($row["status"] == 0) {
+                                    echo "<strong style='color: grey'>Ẩn</strong>";
+                                } elseif ($row["status"] == 1) {
+                                    echo "<strong style='color: green'>Đang bán</strong>";
+                                } elseif ($row["status"] == 2) {
+                                    echo "<strong style='color: red'>Hết hàng</strong>";
+                                }
+                                ?></td>
                             <td><?php
                                 //tình trạng kho hàng.
                                 if ($row["available"] == 0) {
@@ -94,10 +94,10 @@ if (is_array($rs) || is_object($rs)) {
                             <td><a href="index.php?page=suasanpham&id=<?php echo $row['id'] ?>"><i class="fa fa-pencil"></i>&nbsp;&nbsp;Sửa</a>&nbsp;|
                                 <a href="#" onclick="confirm_xoa(<?php echo $row['id'] ?>)"><i class="fa fa-trash"></i>&nbsp;&nbsp;Xóa</a></td>
                         </tr>
-        <?php
-    }
-}
-?>
+                        <?php
+                    }
+                }
+                ?>
             </tbody>
 
         </table>

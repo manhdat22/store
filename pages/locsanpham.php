@@ -104,7 +104,7 @@ $count = mysqli_num_rows($datas);
                                             </div>
                                         </a>
                                         <h4><?php echo $p['ten_san_pham'] ?></h4>
-                                        <p><a class="item_add" href="#" title="Thêm vào giỏ hàng"><i></i> <span class=" item_price"><?php echo number_format($p['don_gia'], 0, "", ".") . " VNĐ"; ?></span></a></p>
+                                        <p><a class="item_add" ><i></i> <span class=" item_price"><?php echo number_format($p['don_gia'], 0, "", ".") . " VNĐ"; ?></span></a></p>
                                     </div>
                                 </div>
                                 <?php

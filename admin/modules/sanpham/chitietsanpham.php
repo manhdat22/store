@@ -1,7 +1,7 @@
 
 <?php
 require_once './init.php';
-
+$tonggia = 0;
 if (isset($_REQUEST['id'])) {
     $id_sp = $_REQUEST['id'];
     $lay_du_lieu = "SELECT  `san_pham`.* , `danh_muc`.ten_danh_muc , `thuong_hieu`.ten_thuong_hieu,  `nha_phan_phoi`.ten_nha_phan_phoi FROM `san_pham`  JOIN danh_muc on san_pham.id_danh_muc=danh_muc.id JOIN thuong_hieu on san_pham.id_thuong_hieu=thuong_hieu.id JOIN nha_phan_phoi on san_pham.id_nha_phan_phoi=nha_phan_phoi.id where san_pham.id = '{$id_sp}'";
@@ -42,9 +42,12 @@ $db->close();
                     </tr>
                     <tr>
                         
-<!--                        //lấy nhiểu ảnh-->
                         <td>Ảnh sản phẩm</td>
                         <td><img src="<?php  echo "http://localhost/store/images/" . $datas['hinh_anh'] ?>" width='100px'/></td>
+                    </tr>
+                    <tr>
+                        <td>Đơn giá</td>
+                        <td><?php echo $datas['don_gia']; ?></td>
                     </tr>
                     <tr>
                         <td>Danh mục</td>
@@ -67,8 +70,6 @@ $db->close();
                                 } elseif ($datas["status"] == 1) {
                                     echo "<strong style='color: green'>Đang bán</strong>";
                                 } elseif ($datas["status"] == 2) {
-                                    echo "<strong style='color: orange'>Sắp hết hàng</strong>";
-                                } elseif ($datas["status"] == 3) {
                                     echo "<strong style='color: red'>Hết hàng</strong>";
                                 }
                                 ?></td>

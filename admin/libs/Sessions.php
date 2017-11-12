@@ -31,6 +31,14 @@ class Sessions{
             $user = '';
         }
     }
+    
+    public function getCart() {
+        if (isset($_SESSION['cart'])) {
+            $cart = $_SESSION['cart'];
+        } else {
+            $cart = '';
+        }
+    }
 
     public function destroy() {
         session_destroy();

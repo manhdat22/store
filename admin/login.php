@@ -37,7 +37,7 @@ if (isset($_SESSION['user'])) {
             if ($db->num_rows($check_user)) {
                 
                 //Kiểm tra quyền
-                $check_permission = "SELECT username, password FROM `users` WHERE `username` = '$username' AND `quyen` != 2 AND `trang_thai` != 0 ";
+                $check_permission = "SELECT username, password FROM `users` WHERE `username` = '$username' AND `quyen` != 1 AND `trang_thai` != 0 ";
                 if ($db->num_rows($check_permission)) {
 
                     $session->send($username);
@@ -76,10 +76,10 @@ if (isset($_SESSION['user'])) {
                             </div>
                         </div>
 
-                        <div class="already">
+<!--                        <div class="already">
 
                             <a href="#">Quên mật khẩu</a>
-                        </div>
+                        </div>-->
                     </div>
                 </div>
             </div>

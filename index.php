@@ -29,16 +29,49 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                         <a href="index.php"><img src="images/logo.png" alt="Anh Quân Watch"/></a>
                     </div>
                     <div class="col-md-4 top-header-right">
-                        <div class="cart box_1">
-                            <a href="checkout.html">
-                                <h3> <div class="total">
-                                        <span class="simpleCart_total"></span> (<span id="simpleCart_quantity" class="simpleCart_quantity"></span> items)</div>
-                                    <img src="images/cart-1.png" alt="" /></h3>
-                            </a>
-                            <p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
-                            <div class="clearfix"> </div>
+
+                        <?php
+                        //echo $_SESSION['giohang'];
+                        if (!isset($_SESSION['user'])) {
+                            ?>
+                            <div class="col-md-6 cart box_1">
+                                <!--<a title="Chỉnh sửa thông tin cá nhân"><b>Helena</b></a>-->
+                                <a class="total" href="index.php?page=dangky" ><b>Đăng ký</b></a>
+                                <a class="total" href="index.php?page=dangnhap" ><b>Đăng nhập</b></a>
+                            </div>
+                            <?php
+                        } else {
+                            ?>
+                            <div class="col-md-6 cart box_1">
+                                <a class="total" href='index.php?page=chinhsuathongtin&username=<?php echo $_SESSION["user"] ?>' title="Chỉnh sửa thông tin cá nhân"><b><?php echo $_SESSION['user']; ?></b></a>
+                                <a class="total"  href="logout.php" onclick="logoutnow();" class="dropdown-toggle" data-toggle="dropdown">Đăng xuất</a>
+                                <script>
+                                    function logoutnow() {
+                                        var check = confirm("Bạn có muốn đăng xuất?");
+                                        if (check) {
+                                            location.href = "logout.php";
+                                        }
+                                    }
+                                </script>
+                            </div>
+                            <?php
+                        }
+                        ?>
+
+                        <div class="col-md-6">
+                            <div class="cart box_1">
+                                <a href="index.php?page=giohang">
+                                    <h3> <div class="total">
+
+                                            <img src="images/cart-1.png" alt="" />   Giỏ hàng 
+                                    </h3>
+                                </a>
+                                <p></p>
+                                <div class="clearfix"> </div>
+                            </div>
                         </div>
                     </div>
+
                     <div class="clearfix"></div>
                 </div>
             </div>

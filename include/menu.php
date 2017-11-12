@@ -7,12 +7,24 @@ $th = mysqli_query($db->conn, $thuong_hieu);
 //
 $nha_phan_phoi = "SELECT * from nha_phan_phoi";
 $npp = mysqli_query($db->conn, $nha_phan_phoi);
+
+$menu0 = $menu1 =$menu2 = "";
+
+if (!isset($_GET['page'])) {
+    $menu0 = 'class="active"';
+}
+elseif ($_GET['page'] == 'locsanpham') {
+    $menu1 = 'style="color: #181b2a;"';
+}
+elseif ($_GET['page'] == 'gioithieu') {
+    $menu2 = 'class="active"';
+}
 ?>
 
 <div class="container">
     <div class="top-nav">
-        <ul class="memenu skyblue"><li class="active"><a href="index.php">Trang chủ</a></li>
-            <li class="grid"><a href="#">Danh mục sản phẩm</a>
+        <ul class="memenu skyblue"><li <?php echo $menu0; ?> ><a href="index.php">Trang chủ</a></li>
+            <li class="grid"><a href="#" <?php echo $menu1; ?>>Danh mục sản phẩm</a>
                 <div class="mepanel">
                     <div class="row">
                         <div class="col1 me-one">
@@ -68,8 +80,7 @@ $npp = mysqli_query($db->conn, $nha_phan_phoi);
                     </div>
                 </div>
             </li>
-            <li ><a href="index.php">Giới thiệu</a></li>
-            <li ><a href="index.php">Liên hệ</a></li>
+            <li <?php echo $menu2; ?>><a href="index.php">Giới thiệu</a></li>
         </ul>
     </div>
     <div class="clearfix"> </div>

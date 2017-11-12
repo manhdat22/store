@@ -33,6 +33,12 @@ if (isset($_REQUEST['page'])) {
         case "suasanpham":
             $m5 = 'class="current"';
             break;
+        case "thanhvien" :
+        case "xoathanhvien":
+        case "themthanhvien":
+        case "suathanhvien":
+            $m7 = 'class="current"';
+            break;
         default:
             //$admin = 'class="current"';
             break;
@@ -40,7 +46,6 @@ if (isset($_REQUEST['page'])) {
 } else {
     $m0 = 'class="current"';
 }
-
 ?>
 
 
@@ -54,18 +59,17 @@ if (isset($_REQUEST['page'])) {
         <li <?php echo $m4; ?>><a href="index.php?page=nhaphanphoi"><i class="glyphicon glyphicon-chevron-right"></i> Nhà phân phối</a></li>
         <li <?php echo $m5; ?>><a href="index.php?page=sanpham"><i class="glyphicon glyphicon-chevron-right"></i> Sản phẩm </a></li>
         <li <?php echo $m6; ?>><a href="index.php?page=baocao"><i class="glyphicon glyphicon-chevron-right"></i> Báo cáo </a></li>
-        <li <?php echo $m7; ?>><a href="index.php?page=slide"><i class="glyphicon glyphicon-chevron-right"></i> Slide </a></li>
-        <li <?php echo $m7; ?>><a href="index.php?page=user"><i class="glyphicon glyphicon-chevron-right"></i> Thành viên </a></li>
-        <li class="submenu">
-            <a href="#">
-                <i class="glyphicon glyphicon-list"></i> Pages
-                <span class="caret pull-right"></span>
-            </a>
-            <!-- Sub menu -->
-            <ul>
-                <li><a href="login.html">Login</a></li>
-                <li><a href="signup.html">Signup</a></li>
-            </ul>
-        </li>
+        <li <?php echo $m7; ?>><a href="index.php?page=thanhvien"><i class="glyphicon glyphicon-chevron-right"></i> Thành viên </a></li>
+        <!--<li class="submenu">
+                    <a href="#">
+                        <i class="glyphicon glyphicon-list"></i> Pages
+                        <span class="caret pull-right"></span>
+                    </a>
+                     Sub menu 
+                    <ul>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="signup.html">Signup</a></li>
+                    </ul>
+                </li>-->
     </ul>
 </div>

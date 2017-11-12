@@ -3,10 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Code/xampp/htdocs/store/pages/search.php</file>
+            <file>file:/D:/Code/xampp/htdocs/store/admin/modules/thanhvien/thanhvien.php</file>
+            <file>file:/D:/Code/xampp/htdocs/store/include/themgiohang.php</file>
+            <file>file:/D:/Code/xampp/htdocs/store/include/product-left.php</file>
+            <file>file:/D:/Code/xampp/htdocs/store/account.html</file>
+            <file>file:/D:/Code/xampp/htdocs/store/admin/modules/donhang/chitietdonhang.php</file>
             <file>file:/D:/Code/xampp/htdocs/store/include/route.php</file>
+            <file>file:/D:/Code/xampp/htdocs/store/include/xoagiohang.php</file>
             <file>file:/D:/Code/xampp/htdocs/store/index.php</file>
-            <file>file:/D:/Code/xampp/htdocs/store/pages/locsanpham.php</file>
+            <file>file:/D:/Code/xampp/htdocs/store/pages/cart.php</file>
+            <file>file:/D:/Code/xampp/htdocs/store/pages/sanpham.php</file>
+            <file>file:/D:/Code/xampp/htdocs/store/admin/modules/donhang/xoadonhang.php</file>
+            <file>file:/D:/Code/xampp/htdocs/store/admin/index.php</file>
+            <file>file:/D:/Code/xampp/htdocs/store/admin/modules/sanpham/themsanpham.php</file>
+            <file>file:/D:/Code/xampp/htdocs/store/admin/modules/donhang/donhang.php</file>
         </group>
     </open-files>
 </project-private>

@@ -4,7 +4,10 @@ if (isset($_REQUEST['page'])) {
     $page = $_REQUEST['page'];
 
     switch ($page) {
-
+        case 'donhang' : include 'modules/donhang/donhang.php';
+            break;
+        case 'chitietdonhang' : include 'modules/donhang/chitietdonhang.php';
+            break;
         //danh muc
         case 'danhmuc' : include 'modules/danhmuc/danhmuc.php';
             break;
@@ -43,7 +46,15 @@ if (isset($_REQUEST['page'])) {
             break;
         case 'chitietsanpham' : include 'modules/sanpham/chitietsanpham.php';
             break;
-
+        //user
+        case 'thanhvien' : include 'modules/thanhvien/thanhvien.php';
+            break;
+        case 'themthanhvien' : include 'modules/thanhvien/themthanhvien.php';
+            break;
+        case 'suathanhvien' : include 'modules/thanhvien/suathanhvien.php';
+            break;
+        case 'xoathanhvien' : include 'modules/thanhvien/xoathanhvien.php';
+            break;
         default : 
             break;
     }

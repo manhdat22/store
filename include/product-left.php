@@ -37,7 +37,7 @@ $datas = mysqli_query($db->conn, $get_product);
                             </div>
                         </a>
                         <h4><?php echo $p['ten_san_pham'] ?></h4>
-                        <p><a class="item_add" href="#" title="Thêm vào giỏ hàng"><i></i> <span class=" item_price"><?php echo number_format($p['don_gia'], 0, "", ".") . " VNĐ"; ?></span></a></p>
+                        <p><a class="item_add" ><i></i> <span class=" item_price"><?php echo number_format($p['don_gia'], 0, "", ".") . " VNĐ"; ?></span></a></p>
                     </div>
                 </div>
                 <?php
@@ -53,7 +53,7 @@ $datas = mysqli_query($db->conn, $get_product);
             echo "<li><a href='index.php?p=".($current_page-1)."'> < </a></li>";
         }
         
-        for ($i = 1; $i <= $total_page; $i++){
+        for ($i = 1; $i < $total_page; $i++){
             if ($i == $current_page) {
                 echo "<li><a style='background:#f2f2f2'>$i</a></li>";
             } else  {

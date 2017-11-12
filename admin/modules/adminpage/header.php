@@ -1,8 +1,16 @@
 <?php
-    if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user'])) {
     echo '<script>alert("Bạn chưa đăng nhập, vui lòng đăng nhập")</script>';
-    
+
     new Redirect($login);
+}if (isset($_SESSION['user'])) {
+    $check_permission = "SELECT * FROM `users` WHERE `username` = '" . $_SESSION['user'] . "' AND `quyen` = 0 AND `trang_thai` = 1 ";
+
+    if (!$db->num_rows($check_permission)) {
+    
+        echo '<script>alert("Bạn không có quyền truy cập trang này")</script>';
+        new Redirect('../index.php');
+    }
 }
 ?>
 

@@ -31,3 +31,4 @@
 <script type="text/javascript" src="js/jquery.simplePagination.js"></script>
 <script>$(document).ready(function(){$(".memenu").memenu();});</script>
 <link rel="stylesheet" href="http://localhost/store/font/css/font-awesome.min.css">
+<script src="js/simpleCart.min.js"> </script>
